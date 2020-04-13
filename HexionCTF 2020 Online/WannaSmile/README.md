@@ -47,4 +47,4 @@ echo "uaresuchacrybaby www.google.com" > /tmp/myhosts
 HOSTALIASES=/tmp/myhosts ./wannasmile
 ```
 
-Flag: `hexCTF{1m_s0rry_1f_y0u_r3v3r5ed_7h1s}`
+Flag: `hexCTF{wh0_put5_k1ll_sw1tch3s_in_the1r_m4lw4r3}`
