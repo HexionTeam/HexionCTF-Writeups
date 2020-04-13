@@ -12,9 +12,9 @@ Writeup written by moka ([Discord](https://discordapp.com/users/6611092711481016
 the given executable is statically linked and stripped which means reversing will be a bit tougher.\
 fortunately main isn't too complicated and so we'll be able to guess what functions are used.
 
-the initial ghidra decompilation will look something like this:\
+the initial ghidra decompilation will look something like this:
 
-![functions before naming](assets/unnamed.PNG)\
+![functions before naming](assets/unnamed.PNG)
 
 Unique disassembled functions from top to bottom:
 1. syscall with eax=0xc9 (time syscall) - time.
@@ -22,7 +22,7 @@ Unique disassembled functions from top to bottom:
 3. takes filename as first parameter - fopen.
 4. takes FILE* as input, return value is compared with EOF (-1) - fgetc.
 5. does not accept parameters return value is used, uses shared global variables with srand - rand.
-6. number of parameters is off, the function uses output's FILE* and a manipulated value - fputc.\
+6. number of parameters is off, the function uses output's FILE* and a manipulated value - fputc.
 7. FILE* parameter, return value unused - fclose
 
 after renaming and retyping:\
