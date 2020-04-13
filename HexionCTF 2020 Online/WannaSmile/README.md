@@ -1,6 +1,6 @@
 # WannaSmile - Solution
 
-Created by [moka](https://discordapp.com/users/661109271148101652)
+Created by moka ([Discord](https://discordapp.com/users/661109271148101652))
 
 ## Description
 > I accidentally executed this weird file that encrypted my important files!\

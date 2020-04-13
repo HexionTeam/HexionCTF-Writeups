@@ -1,7 +1,7 @@
 # WWW - Solution
 
 Created by Yarin ([GitHub](https://github.com/CmdEngineer) / [Twitter](https://twitter.com/CmdEngineer_))\
-Writeup written by [moka](https://discordapp.com/users/661109271148101652)
+Writeup written by moka ([Discord](https://discordapp.com/users/661109271148101652))
 
 ## Description
 > challenge[pwn] = me\

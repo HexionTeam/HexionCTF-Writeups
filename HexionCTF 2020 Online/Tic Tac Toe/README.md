@@ -1,6 +1,6 @@
 # Tic Tac Toe - Solution
 
-Created by [moka](https://discordapp.com/users/661109271148101652)
+Created by moka ([Discord](https://discordapp.com/users/661109271148101652))
 
 ## Description
 > Can you beat me?
