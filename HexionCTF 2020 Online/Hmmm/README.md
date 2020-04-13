@@ -68,5 +68,6 @@ from pwn import ELF
 section = ELF('./hmmm').get_section_by_name('.note.f14g').data()
 print(''.join([chr(_) for _ in section if _ != 0]))
 ```
+or you could `cat ./hmm`
 
 Flag: `hexCTF{1m_s0rry_1f_y0u_r3v3r5ed_7h1s}`
