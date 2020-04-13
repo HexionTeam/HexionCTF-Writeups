@@ -1,4 +1,4 @@
-# Debug - Solution
+# SSS - Solution
 
 Created by Yarin ([GitHub](https://github.com/CmdEngineer) / [Twitter](https://twitter.com/CmdEngineer_))
 
