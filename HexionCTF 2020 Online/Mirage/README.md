@@ -8,7 +8,10 @@ Created by Idan ([GitHub](https://github.com/idan22moral/) / [Twitter](https://t
 https://mirage.hexionteam.com
 
 ## Solution
-So we get a URL to a website that shows an image of random characters, and we have the ability to write a text as input.  
+So we get a URL to a website that shows an image of random characters, and we have the ability to write a text as input.
+<br><br>
+![alt](assets/website.png)
+<br><br>
 When writing text, we see that the graphical representation of the input in not corrent (for example: when entering 'A', it prints 'w'). interesting.  
 We understand that the text is a scrambled version of the flag in some way.
 
