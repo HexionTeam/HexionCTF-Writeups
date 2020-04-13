@@ -22,9 +22,13 @@ http://challenges2.hexionteam.com:2000
 
 You start with a welcoming page at `/welcome.html` \
 If you try navigating to a different page you will get a Flask Error Page
+
 ![Image Error](assets/flask_error.png)
+
 As you can see Debug mode is on we can try to request a shell by going to `/console` but it requests for a PIN code.
+
 ![Image Error](assets/pin_code.png)
+
 We need to get the pin code. Bruteforce is not allowed. \
 We can view some of the source in the flask error page by clicking on the error line. 
 ```py
@@ -38,7 +42,9 @@ if __name__ == "__main__":
     old_factory = logging.getLogRecordFactory()
 ```
 We can see that we can take any file we want except the flag. In addition the `error.log` file contains log record from Flask this can be useful to break the PIN because the PIN is printed out on the standard output of the shell
+
 ![Image Error](assets/error_pin.png)
+
 Now we can get a console and run `open("flag", "r").read()` and get the flag.
 
 Flag: `hexCTF{d0nt_us3_d3bug_1n_pr0duct1on}`
