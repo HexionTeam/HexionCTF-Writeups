@@ -45,9 +45,10 @@ We open the source code of the page and see:
 </html>
 ```
 
-There's a custom font called `hexfot.ttf`, let's download it by accessing https://mirage.hexionteam.com/assets/hexfont.ttf
+There's a custom font called `hexfont.ttf`, let's download it by accessing https://mirage.hexionteam.com/assets/hexfont.ttf
 
-The first tool that needs to come to your mind when a font is involded is `FontForge` (and for method 3/4: `fonttools` in python , I used it to create the challenge).
+The first tool that needs to come to your mind when a font is involded is `FontForge`  
+(and for method 3/4: `fonttools` in python , I used it to create the challenge).
 
 By opening the font in `FontForge` we get the following map of characters:<br><br>
 ![alt text](assets/fontforge.png "fontforge")
