@@ -30,7 +30,7 @@ flag:
 Interesting. Lets review the code.  
 In the source code we see a few functions, such as `protect`, `unprotect`, `copy`, `setup`, and of course `main`.
 
-By a quick review, we can understand that `protect` and `unprotect` manage the protection of the flag file by making it immutable (non-moveable, non-modifiable, non-deletable, etc.).<br>
+By a quick review, we can understand that `protect` makes the flag file immutable (non-moveable, non-modifiable, non-deletable, etc.), and `unprotect` returns it back to being mutable.<br>
 
 The `copy` function copies the file from one point to the other, and sets the read/write permissions for the owner (user) only.
 
