@@ -24,9 +24,9 @@ int main(void) {
     printf(buf);
 }
 ```
-it loops over the write `amount` times,\
-and since `amount` is a stack variable, we can change it
-and then write anywhere we want for an arbitrary amount of times!
+it only write `amount` bytes which is set to 1,\
+but since `amount` is a stack variable, we can change it
+and then write anywhere we want an arbitrary amount of times!
 <br>
 <br>
 now the first thing I'll do is create a function that'll do all that for me:
