@@ -4,12 +4,12 @@ Created by [moka](https://discordapp.com/users/661109271148101652)
 
 ## Description
 > I accidentally executed this weird file that encrypted my important files!\
-please help me understand what it does\
+please help me understand what it does
 <br>
 `ssh wannasmile@challenges1.hexionteam.com -p 4000`<br/>
 Password: `hexctf`
 <br><br>
-*This challenge consists of 2 parts.\
+*This challenge consists of 2 parts.<br>
 **Attached version has the first flag removed.
 
 ## Solution
