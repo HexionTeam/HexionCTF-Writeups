@@ -9,7 +9,7 @@ Note: anime girl isn't the flag
 
 ## Solution
 the given ELF doesn't do anything intersting,\
-it prints this braille art of chika:\
+it prints this braille art of chika:
 ```
 ⢸⣿⣿⣿⣿⠃⠄⢀⣴⡾⠃⠄⠄⠄⠄⠄⠈⠺⠟⠛⠛⠛⠛⠻⢿⣿⣿⣿⣿⣶⣤⡀⠄
 ⢸⣿⣿⣿⡟⢀⣴⣿⡿⠁⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⣸⣿⣿⣿⣿⣿⣿⣿⣷
