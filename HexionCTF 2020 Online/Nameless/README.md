@@ -1,76 +1,72 @@
 # Nameless - Solution
 
-Created by Yarin ([GitHub](https://github.com/CmdEngineer) / [Twitter](https://twitter.com/CmdEngineer_))
+Created by Yarin ([GitHub](https://github.com/CmdEngineer) / [Twitter](https://twitter.com/CmdEngineer_)) and Idan ([GitHub](https://github.com/idan22moral/) / [Twitter](https://twitter.com/idan_moral))
 
 Writeup written by moka ([Discord](https://discordapp.com/users/661109271148101652))
 
 ## Description
-> 🤔\
-Note: anime girl isn't the flag
+> Strip my statically linked clothes off
 
 
 ## Solution
-the given ELF doesn't do anything intersting,\
-it prints this braille art of chika:
-```
-⢸⣿⣿⣿⣿⠃⠄⢀⣴⡾⠃⠄⠄⠄⠄⠄⠈⠺⠟⠛⠛⠛⠛⠻⢿⣿⣿⣿⣿⣶⣤⡀⠄
-⢸⣿⣿⣿⡟⢀⣴⣿⡿⠁⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⣸⣿⣿⣿⣿⣿⣿⣿⣷
-⢸⣿⣿⠟⣴⣿⡿⡟⡼⢹⣷⢲⡶⣖⣾⣶⢄⠄⠄⠄⠄⠄⢀⣼⣿⢿⣿⣿⣿⣿⣿⣿⣿
-⢸⣿⢫⣾⣿⡟⣾⡸⢠⡿⢳⡿⠍⣼⣿⢏⣿⣷⢄⡀⠄⢠⣾⢻⣿⣸⣿⣿⣿⣿⣿⣿⣿
-⡿⣡⣿⣿⡟⡼⡁⠁⣰⠂⡾⠉⢨⣿⠃⣿⡿⠍⣾⣟⢤⣿⢇⣿⢇⣿⣿⢿⣿⣿⣿⣿⣿
-⣱⣿⣿⡟⡐⣰⣧⡷⣿⣴⣧⣤⣼⣯⢸⡿⠁⣰⠟⢀⣼⠏⣲⠏⢸⣿⡟⣿⣿⣿⣿⣿⣿
-⣿⣿⡟⠁⠄⠟⣁⠄⢡⣿⣿⣿⣿⣿⣿⣦⣼⢟⢀⡼⠃⡹⠃⡀⢸⡿⢸⣿⣿⣿⣿⣿⡟
-⣿⣿⠃⠄⢀⣾⠋⠓⢰⣿⣿⣿⣿⣿⣿⠿⣿⣿⣾⣅⢔⣕⡇⡇⡼⢁⣿⣿⣿⣿⣿⣿⢣
-⣿⡟⠄⠄⣾⣇⠷⣢⣿⣿⣿⣿⣿⣿⣿⣭⣀⡈⠙⢿⣿⣿⡇⡧⢁⣾⣿⣿⣿⣿⣿⢏⣾
-⣿⡇⠄⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠟⢻⠇⠄⠄⢿⣿⡇⢡⣾⣿⣿⣿⣿⣿⣏⣼⣿
-⣿⣷⢰⣿⣿⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⢰⣧⣀⡄⢀⠘⡿⣰⣿⣿⣿⣿⣿⣿⠟⣼⣿⣿
-⢹⣿⢸⣿⣿⠟⠻⢿⣿⣿⣿⣿⣿⣿⣿⣶⣭⣉⣤⣿⢈⣼⣿⣿⣿⣿⣿⣿⠏⣾⣹⣿⣿
-⢸⠇⡜⣿⡟⠄⠄⠄⠈⠙⣿⣿⣿⣿⣿⣿⣿⣿⠟⣱⣻⣿⣿⣿⣿⣿⠟⠁⢳⠃⣿⣿⣿
-⠄⣰⡗⠹⣿⣄⠄⠄⠄⢀⣿⣿⣿⣿⣿⣿⠟⣅⣥⣿⣿⣿⣿⠿⠋⠄⠄⣾⡌⢠⣿⡿⠃
-⠜⠋⢠⣷⢻⣿⣿⣶⣾⣿⣿⣿⣿⠿⣛⣥⣾⣿⠿⠟⠛⠉⠄⠄
-```
+the given executable is statically linked and stripped which means reversing will be a bit tougher.\
+fortunately main isn't too complicated and so we'll be able to guess what functions are used.
 
-and does some random calculations.\
-but something else within the ELF is interesting,\
-`readelf -a ./hmmm`\
-shows that there are unusual section names,
-one of which is `.note.f14g`.
+the initial ghidra decompilation will look something like this:\
 
-the next step would be displaying the notes
+![functions before naming](assets/unnamed.PNG)\
+
+Unique disassembled functions from top to bottom:
+1. syscall with eax=0xc9 (time syscall) - time.
+2. uses the time as a parameter - srand.
+3. takes filename as first parameter - fopen.
+4. takes FILE* as input, return value is compared with EOF (-1) - fgetc.
+5. does not accept parameters return value is used, uses shared global variables with srand - rand.
+6. number of parameters is off, the function uses output's FILE* and a manipulated value - fputc.\
+7. FILE* parameter, return value unused - fclose
+
+after renaming and retyping:\
+![functions before naming](assets/named.PNG)
+
+now the actions of the binary are much more clear.\
+it seeds with time(0), reads characters from the flag one by one\
+and then xors them with a random value between 1 and 666.
+
+since the challenge is given to us inside a .rar - \
+we can use the modification time of out.txt to guess the time that was passed to srand.
+
 ```
-$ readelf -n ./hmmm
-
-Displaying notes found in: .note.f14g
-readelf: Warning: Corrupt note: alignment 32, expecting 4 or 8
+$ stat -c %Y out.txt
+1586541672
 ```
 
-but the section is corrupt, maybe we can try to hexdump it
+1586541672 is the timestamp we can use to start guessing with.
+
+this small script I wrote tries to bruteforce the seed by comparing the first bytes of output with hexCTF\
+for every seed going down from the modification time.
+```c
+int main()
+{
+	FILE *out = fopen("out.txt", "r");
+    char buff[35] = {0}, test[35] = {0};
+	fread(buff, 1, 34, out);
+	unsigned int t = 1586541672;
+	
+	do
+	{
+		srand(t--);
+		for(char i = 0; i < 6; i++)
+			test[i] = buff[i] ^ rand() % 0x666 + 1;
+	} while(strcmp(test, "hexCTF"));
+
+	srand(t + 1);
+	for(char i = 0; i < 34; i++)
+		test[i] = buff[i] ^ rand() % 0x666 + 1;
+
+	printf("%s\n", test);
+
+    fclose(out);
+}
 ```
-$ objdump -j .note.f14g -s hmmm
 
-Contents of section .note.f14g:
- 0380 68000000 00000000 00000000 00000000  h...............
- 0390 00000000 00000000 00000000 00000000  ................
- 03a0 00000000 00000000 00000000 65000000  ............e...
- 03b0 00000000 00000000 00000000 00000000  ................
- 03c0 00000000 00000000 00000000 00000000  ................
- 03d0 00000000 00000000 00000000 00000000  ................
- 03e0 00000000 00000000 00000000 00000000  ................
- 03f0 00000000 00000000 00000000 78000000  ............x...
- ...
- ...
-```
-and there's the flag.
-
-
-to extract the flag we can use this short snippet:
-```python
-from pwn import ELF
-
-section = ELF('./hmmm').get_section_by_name('.note.f14g').data()
-print(''.join([chr(_) for _ in section if _ != 0]))
-```
-or... you could `cat ./hmm`
-
-Flag: `hexCTF{1m_s0rry_1f_y0u_r3v3r5ed_7h1s}`\
-(I'm actually sorry for your suffering)
+Flag: `hexCTF{nam3s_ar3_h4rd_t0_r3m3mb3r}`
