@@ -25,8 +25,8 @@ So we have to approaches here:
 2. Try to reverse using the IL (hardcore)
 
 ### Approach 1:
-1. Use Windows' builtin called [ilasm](ilasm_lnk) to compile the IL code to an executable.
-2. Use any C# decompiler ([JustDecompile](jd_lnk), [ILSpy](ilspy_lnk), etc.) to decompile the code and get the source in a more readble way.
+1. Use Windows' builtin called [ilasm][ilasm_lnk] to compile the IL code to an executable.
+2. Use any C# decompiler ([JustDecompile][jd_lnk], [ILSpy][ilspy_lnk], etc.) to decompile the code and get the source in a more readble way.
 
 ### Approach 2:
 I'll explain this approach deeper, since this is the hardcore and fun way.  
@@ -37,7 +37,7 @@ From that we can understand that the original file was modified in some way, and
 we can also see a function called `Hide` which is a big hint.  
 Let's try to understand how `Hide` works, so we can reverse it and get the flag.
 
-We see that the function gets a secret (flag), source and destination paths (probably for the original and result files), and that there are some local variables defined. One of the is BitArray (steganography + bits = [LSB Steganography](lsb_lnk)? Maybe, lets see)
+We see that the function gets a secret (flag), source and destination paths (probably for the original and result files), and that there are some local variables defined. One of the is BitArray (steganography + bits = [LSB Steganography][lsb_lnk]? Maybe, lets see)
 ```cs
 .method private hidebysig static 
         void Hide (
@@ -81,7 +81,7 @@ Btw - when talking about the digits of Pi we often do not include the `3.` part,
 Back to the `Hide` function:  
 Now we know that we're looking for something related to Pi, and data hiding.  
 When opening the `bmp` that we got - it works, so the header must be valid and not corrupted.  
-Let's take a look at the [BMP specification](bmp_lnk):
+Let's take a look at the [BMP specification][bmp_lnk]:
 ![alt](assets/bmp.png)
 The size of the header is 0xe (14) and we see this value in the code here:  
 ```cs
