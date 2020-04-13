@@ -18,7 +18,9 @@ and we need to understand how it works,\
 and for that we can start by disassembling it. (I'll use Ghidra)
 
 after some renaming, main should look somewhat like this:
+<br>
 ![main function](assets/main.PNG)
+<br>
 it looks like a certain string is being decoded and then
 fed to gethostbyname,\
 and if that host can be resolved by the system - the first flag is printed!
@@ -26,8 +28,9 @@ and if that host can be resolved by the system - the first flag is printed!
 instead of trying to understand the unreadable decompilation,\
 we could use dynamic analysis tools like gdb/ltrace/strace to see the\
 decoded string in runtime.
-
+<br>
 ![decoded hostname](assets/host.PNG)
+<br>
 
 this hostname does not resolve to anything,\
 and we can't edit /etc/hosts on the remote machine,\
