@@ -1,7 +1,7 @@
 # WWW - Solution
 
 Created by Yarin ([GitHub](https://github.com/CmdEngineer) / [Twitter](https://twitter.com/CmdEngineer_))\
-Writeup written by moka
+Writeup written by [moka](https://discordapp.com/users/661109271148101652)
 
 ## Description
 > challenge[pwn] = me\
@@ -24,9 +24,9 @@ int main(void) {
     printf(buf);
 }
 ```
-it loops over the write `amount` times,\
-and since `amount` is a stack variable, we can change it
-and then write anywhere we want for an arbitrary amount of times!
+it only write `amount` bytes which is set to 1,\
+but since `amount` is a stack variable, we can change it
+and then write anywhere we want an arbitrary amount of times!
 <br>
 <br>
 now the first thing I'll do is create a function that'll do all that for me:
@@ -66,5 +66,5 @@ write(b'/bin/sh\x00', 0, True)
 p.interactive()
 ```
 and - we have a shell.
-<br><br><br>
+<br><br>
 Flag: `hexCTF{wh0_wh1ch_why_wh3n?}`
