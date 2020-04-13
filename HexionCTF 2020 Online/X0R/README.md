@@ -55,16 +55,16 @@ for i in range(8, 17):
 ```
 
 ### Output
-> Known Key: JtmZzCJ
-8 hexCTF__xN_ECXe__AFI_uY_tvIuv_y_eWbrS_H_CJ
-9 hexCTF___percali__agilist__expiali__cious_
-10 hexCTF_____kTAU_____NB_jDAn___yoByukc___CJ
-11 hexCTF_____UMvuYI_____YDSX_lF____i_EsgAe__
-12 hexCTF______soBypva_____tvIuv_y_____cious_
-13 hexCTF_______Q_NPOhY______n_aGIXe______e_S
-14 hexCTF________eWgoQPN_______Fi_AU_E_______
-15 hexCTF_________i_XqiG_________yoByukc_____
-16 hexCTF___________AFI_uY_________eWbrS_H___
+> Known Key: JtmZzCJ<br>
+8 hexCTF__xN_ECXe__AFI_uY_tvIuv_y_eWbrS_H_CJ<br>
+9 hexCTF___percali__agilist__expiali__cious_<br>
+10 hexCTF_____kTAU_____NB_jDAn___yoByukc___CJ<br>
+11 hexCTF_____UMvuYI_____YDSX_lF____i_EsgAe__<br>
+12 hexCTF______soBypva_____tvIuv_y_____cious_<br>
+13 hexCTF_______Q_NPOhY______n_aGIXe______e_S<br>
+14 hexCTF________eWgoQPN_______Fi_AU_E_______<br>
+15 hexCTF_________i_XqiG_________yoByukc_____<br>
+16 hexCTF___________AFI_uY_________eWbrS_H___<br>
 
 We know the correct key length is 9 because it is the only one that makes sense:
 `hexCTF{__percali__agilist__expiali__cious}`
