@@ -2,10 +2,14 @@
 
 Created by Yarin ([GitHub](https://github.com/CmdEngineer) / [Twitter](https://twitter.com/CmdEngineer_))
 
-```txt
-Note:
-The challenge wasn't added to the CTF in the end because using gunicorn on it would disable Flask's Debug mode, runing it without gunicorn was plausible but then everytime someone would bruteforce the pin we had to restart the server due to too many tries.
-```
+
+> **Note:**  
+The challenge wasn't added to the CTF in the end because using gunicorn on it will disable Flask's Debug mode.  
+Runing it without gunicorn was possible, but then Flask will crash due to the fact that Flask's technical limits.  
+Also - The server will need a reset when the PIN in the
+challenge was guessed too many times.  
+Bottom line - the challenge did not fit in a large-scale CTF.
+
 
 ## Description
 
